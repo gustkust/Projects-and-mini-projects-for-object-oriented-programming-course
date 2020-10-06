@@ -1,0 +1,57 @@
+#include <iostream>
+
+
+class gambling_machine {
+
+    private:
+        double single_game_cost;
+        double percent_of_cost_to_prize; //that goes to the prize
+        double chance_of_winning;
+        double prize_pool;
+        int number_of_games_played;
+        double how_much_money_is_there_in_the_machine;
+        double machine_capacity;
+
+    public:
+        void set_sgc(double sgc) { single_game_cost = sgc; } //sets new single game cost
+        double get_sgc() { return single_game_cost; } //gets current single game cost
+        void set_poctp(double poctp) { percent_of_cost_to_prize = poctp; } //sets new percent of game cost that goes to the game prize
+        void set_cow(double cow) { chance_of_winning = cow; } //sets new chance of winning
+        double get_poctp() { return percent_of_cost_to_prize; } //gets current percent of game cost that goes to the game prize
+        //game
+
+        double get_pp() { return prize_pool; } // gets current prize pool
+        int get_nogp() { return number_of_games_played; } //gets number of played games
+        double get_hmmititm() { return how_much_money_is_there_in_the_machine; } //gets current amount of money in the machine
+        double get_mc() { return machine_capacity; } //gets machine capacity
+        void reload_machine(double cash_left) { //withdraws money from machine (but leaves given amount of money for the prize)
+            how_much_money_is_there_in_the_machine = cash_left;
+            prize_pool = cash_left;
+        }
+        bool game_win(){
+            int random = rand() % 100;
+            float result = random / 100;
+            if (result < chance_of_winning) {
+                return true;
+            } 
+            else
+            {
+                return false;
+            }
+            
+
+        }
+
+};
+
+
+int main() {
+    int a, b, c;
+    a = 2;
+    b = 3;
+    c = a + b;
+    std::cout << a << std::endl;
+    std::cout << b << std::endl;
+    std::cout << c << std::endl;
+    return 0;
+}
